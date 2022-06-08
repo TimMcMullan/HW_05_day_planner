@@ -1,14 +1,9 @@
-// var today = $('#CurrentDay')
+// Set time and format for app
 
 var timeDis = moment().format("dddd, MMMM do YYYY, h:mm:ss a");
 $("#currentDay").text(timeDis);
 
-// let update = function () {
-//     document.getElementById('currentDay').innerHTML = moment().format("dddd, MMMM do YYYY, h:mm:ss a");
-
-// };
-// setInterval(update, 1000);
-
+// activate save button and store tasks to local storage
 $(document).ready(function () {
 
     $('.saveButt').on('click', function () {
@@ -20,15 +15,7 @@ $(document).ready(function () {
         alert('Changes saved')
     });
 
-    // $(".time-block").each(function () {
-    //     var id = $(this).attr('id');
-    //     var time = localStorage.getItem('id');
-    //     console.log(id)
-    //     if (time !== null) {
-    //         $(this).children('.time').value(time)
-    //     }
-    // });
-
+// make the app easy to follow with color codes as the day progresses
     function updateColor() {
         var hour = moment().hours();
 
@@ -47,7 +34,7 @@ $(document).ready(function () {
             }
         });
     }
-
+// tasks by the hour
     updateColor();
     $("#hour-6 .information").val(localStorage.getItem('hour-6'));
     $("#hour-7 .information").val(localStorage.getItem('hour-7'));
